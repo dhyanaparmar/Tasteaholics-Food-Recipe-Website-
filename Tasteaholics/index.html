@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/logo1.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>Express Eat</title>
+</head>
+<body>
+
+    <!--- Navigation Bar -->
+    <div class="header">
+        <nav class="nav-bar">
+            <img src="./img/logo1.png" class="brand-name">
+            <a href="#" class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <div class="menu-bar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Search Bar -->
+        <div class="title">Find a Recipe</div>
+        <div class="search-wrapper">
+            <div class="fa fa-search"></div>
+            <input type="text" name=""  id="search" placeholder="What do you want to eat?" onkeyup="search()">
+            <div class="fa fa-times" onclick="clearInput()" ></div>
+        </div>
+    </div>
+
+    <!-- Search Results -->
+        <div class="result">
+            <h1>Your Search Result: </h1>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="card-grid" >
+            <div class="food-list" id="food-list">
+                    <p id="none" style="display: none;">Sorry, the food you were looking for was not available.</p>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/mexican_rice.jpg">
+                        </div>
+                        <div class="card-body" >
+                        <h3> Mexican Rice </h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="getRecipeDetails()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/samosa.jpeg">
+                        </div>
+                        <div class="card-body" >
+                        <h3> Samosa </h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get2ndRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/broccoli_soup.jpeg">
+                        </div>
+                        <div class="card-body" >
+                            <h3>Broccoli Almond Soup</h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get3rdRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/Omelette.webp">
+                        </div>
+                        <div class="card-body" >
+                            <h3>Omelette</h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get4thRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/spring-rolls.webp">
+                        </div>
+                        <div class="card-body" >
+                        <h3> Spring Rolls </h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get5thRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/Veg-Chow-Mein.jpg.webp">
+                        </div>
+                        <div class="card-body" >
+                        <h3> Veg-Chow-Mein</h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get6thRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/white-sauce-pasta-featured.webp">
+                        </div>
+                        <div class="card-body" >
+                        <h3> White Sauce Pasta</h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get7thRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/Red-Velvet-Cupcakes-3-New-copy.jpg">
+                        </div>
+                        <div class="card-body" >
+                        <h3>Red Velvet Cupcake</h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get8thRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/paneer-cheese-toast.jpg.webp">
+                        </div>
+                        <div class="card-body" >
+                        <h3>Paneer Cheese Toast</h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get9thRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/chocolate_chip_cookie.webp">
+                        </div>
+                        <div class="card-body" >
+                        <h3>Chocolate Chip Cookie</h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get10thRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="./img/Baked-Sweet-Potato-Fries-Recipe.jpg">
+                        </div>
+                        <div class="card-body" >
+                        <h3>Sweet Potato Fries</h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" onclick="get11thRecipe()">Get Recipe</button>
+                        </div>
+                    </div>
+            </div> 
+
+            <!--Ending of Main Content-->
+
+            <!--Recipe Details-->
+            <div class = "meal-detail" id="meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Mexican Rice</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about"> Mexican rice, is a vibrant and flavorful dish that embodies the rich culinary heritage of Mexico. This classic side dish is a staple in Mexican cuisine, often served alongside main dishes like enchiladas, tacos, or grilled meats. With its colorful appearance and bold flavors, Arroz Mexicano adds a delightful touch to any meal.</p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>Oil 1 tbsp + butter 1 tbsp
+                            <br>Garlic 1 tbsp (chopped)
+                            <br>Onions 1/3rd cup (chopped)
+                            <br>Tomato puree 1/3rd cup
+                            <br>Salt to taste
+                            <br>Lal mirch (red chilli) powder tsp
+                            <br>Dhaniya (coriander) powder 1 tsp
+                            <br>Jeera (cumin) powder 1 tsp
+                            <br>Oregano 2 tsp
+                            <br>Red chilli flakes 2 tsp
+                            <br>Ketchup 1 tbsp
+                            <br>Cooked red rajma beans ½ cup
+                            <br> Sweet corn 1/3rd cup
+                            <br>Yellow bell pepper 1/3rd cup
+                            <br> Green bell pepper/capsicum 1/3rd cup
+                            <br>Red bell pepper 1/3rd cup
+                            <br>Fresh jalapeno/pakode wali mirchi 1/4th cup
+                            <br>Black pepper powder a pinch
+                            <br>Boiled rice 3 cups
+                            <br>Fresh coriander 1 tbsp (chopped)
+
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>1. Set a wok on medium heat, add oil & butter, let the butter melt and turn the flame to high heat, add garlic and cook for a minute on high flame.
+                            <br>2. Further add onions, stir & cook until the onions are light golden brown in colour.
+                            <br>3. Further add tomato puree & salt, stir & cook for a minute, further low down the flame and add the powdered spices & tomato ketchup, stir & cook well on high flame.
+                            <br>4. Further add cooked rajma beans, veggies & black pepper powder, gently stir & cook for a minute. Add a splash of water if the mixture turns too dry, cook for 2-3 minutes on high flame.
+                            <br>5. Now, add the boiled rice, stir gently while mixing well.
+                            <br>6. Finish by adding some freshly chopped coriander leaves and mix well.
+                            <br>7. Your Mexican rice is ready, serve hot by topping it up with some processed cheese, crushed nacho chips and some salsa on side.
+                           </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/mexican_rice.jpg" alt = "">
+                      </div>
+                      <div class = "meal-link">
+                        <a href="https://youtu.be/B-VivdiyL9c?si=Z0YoirYc1UZLC0Nn" class="meal-link-btn">Watch Video</a>
+                    </div>
+                </div>
+            </div>
+            <div class = "second-meal-detail" id="second-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Samosa</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">Indulge in the vibrant flavors of India with our delicious samosas, a quintessential snack loved by millions worldwide. These golden-brown parcels of delight are crafted with care, each bite bursting with a symphony of spices and textures.</p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>Dough
+                            <br>2 cups Refined Flour
+                            <br>1 Tablespoon Semolina
+                            <br>1 teaspoon Carom Seeds
+                            <br> Salt
+                            <br>3 Tablespoon Ghee (Butter)
+                            <br>100 ml Cold Water
+                            <br>3-4 Chilli
+                            <br>1 Tablespoon Cumin
+                            <br>1 Tablespoon Coriander
+                            <br>1 Tablespoon Fennel Seeds
+                            <br>7-8 Potatos
+                            <br>1/3 Cup Boiled Green Peas
+                            <br>Chaat Masala
+                            <br>Black Pepper Powder
+                            <br>1 Tablespoon Kasuri Methi
+                            <br>Fresh Coriander 
+
+
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>1. Add cold water gradually in the flour and knead a stiff & tight dough, knead the dough well for 7-8 minutes, after kneading cover the dough with a damp cloth and rest for 30 minutes. By the time you can prepare the filling.
+                            <br>2. For filling, we need to make the ginger & green chilli paste, for that, add green chillies & ginger in a grinding jar and grind into a fine paste, keep the paste aside to be used later in making the filling.
+                            <br>3. Further, take a mortar & pestle, add cumin seeds, coriander seeds, & fennel seeds and grind to a coarse powder, you can also grind the spices in a mixer grinder, keep the powder aside to be used later in making the filling.
+                            <br>4. Cut the boiled potatoes in quarters and further slice them, keep aside for making filling.
+                            <br>5. Set a pan or a wok on low heat, add ghee, further add the grounded spices & briefly cook on low heat for 30-40 seconds, now add the ginger chilli paste, stir & cook for 1-2 minutes on low flame, further add the boiled potatoes, green peas, salt & pepper to taste, chaat masala, kasuri methi and freshly chopped coriander leaves, stir well to mix the potatoes and the masala well.
+                            <br>6. Increase the flame to medium high & cook the potatoes for 6-7 minutes, it should get some colour while cooking, mash the potatoes lightly while keeping a few chunks intact. Further transfer the mixture in a bowl and allow it to cool down to room temperature. As the filling is ready, you can make the samosa.
+                            <br>7. For making samosa, make the samosa sheets, for that, knead the dough once again that has been resting & divide in equal size dough balls, further flatten the dough balls in thin sheets, making an oval shape, make sure the sheet is not too thin or too thick, divide the sheet width wise in two equal halves. Roll the sheet once again after cutting, as the sheet may shrink a little bit. 
+                            <br>8. Pick one sheet & apply water on the edge of the straight line, bring the ends together and seal well to shape like a cone, fill sufficient amount of aloo filling, while lightly pressing downwards, bring the openings of the samosa together and seal properly to shape a proper samosa. Shape all the samosa in the same way, make sure to cover with a cloth while you’re shaping other samosa. By the time you can set oil for deep frying.
+                            <br>9. For frying, set oil in a big kadhai for deep frying, make sure the kadhai should be wide enough, heat the oil on medium heat and drop in the samosa, fry the samosa on medium heat until they are crisp and golden brown in colour, make sure to fry the samosa in batches but in good quantity that the kadhai is filled but do not overcrowd, make sure the oil should not be too hot, fry the samosa on low to medium flame the samosas are perfectly cooked from inside, adjust the flame accordingly, if you have a thermometer, fry the samosa at 140 ℃ - 150 ℃.
+                            </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/samosa.jpeg" alt = "">
+                      </div>
+                      <div class = "meal-link">
+                        <a href="https://youtu.be/HCyalu9KMIs?si=3MH5e-cdH1sdZIHK" class="meal-link-btn" >Watch Video</a>
+                    </div>
+                </div>
+            </div>  
+            <div class = "third-meal-detail" id="third-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Broccoli Almond Soup</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">Indulge in a comforting bowl of our exquisite Broccoli Almond Soup, a culinary masterpiece that harmonizes the wholesome goodness of broccoli with the delicate richness of almonds. This velvety smooth soup is a celebration of flavors and textures, perfect for cozy evenings or elegant gatherings.</p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>2 Tablespoon Olive oil
+                            <br>1 Onion (Roughly Chopped)
+                            <br>5-6 Garlic cloves (Chopped)
+                            <br>2 Celery Stalks (Roughly chopped)
+                            <br>1 Litre Hot water
+                            <br> Salt to taste
+                            <br>18-20 Almonds (Roughly Chopped)
+                            <br>250 GRAMS Broccoli
+                            <br>Stock as required
+                            <br> Black pepper powder
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>1. Set a deep pan over high, once it gets hot, add in the olive oil & let the oil heat up as well. 
+                            <br>2. Further add onion, garlic & celery, stir well & cook over high flame for 2 minutes. 
+                           <br> 3. Add hot water along with salt & almonds, stir well & bring the water to a boil. 
+                            <br>4. Once the water comes to a roaring boil, add the broccoli, cover & cook over high flame until the broccoli becomes soft & tender, then switch off the flame & strain the mixture using a sieve, make sure to reserve the stock, let the mixture & the stock cool down to temperature. 
+                            <br>5. Once cooled, add the broccoli mixture into a mixer grinder jar along with stock & blend it into a semi thick fine puree. 
+                            <br>6. Strain & add the puree into a deep pan & switch on the flame to high, stir well to check the consistency & add more stock as required, you can keep the consistency of the soup as per your preference. 
+                            <br>7. Bring the soup to a simmer, then taste & add salt & black pepper according to your taste & stir well.
+                            <br>8. Your quick, delicious, healthy & vegan broccoli almond soup is ready.
+                            </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/broccoli_soup.jpeg" alt = "">
+                      </div>
+                      <div class = "meal-link">
+                        <a href="https://youtu.be/DMqxTrJ1yTM?si=gExvrr0bGTp9JULG" class="meal-link-btn" >Watch Video</a>
+                    </div>
+                </div>
+            </div>  
+            <div class = "four-meal-detail" id="four-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Omelette</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">In cuisine, an omelette is a dish made from beaten eggs, fried with butter or oil in a frying pan. It is quite common for the omelette to be folded around fillings such as chives, vegetables, mushrooms, meat, cheese, onions or some combination of the above. 
+                        </p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>2 Tablespoon chopped garlic
+                            <br> 2 Tablespoon chopped Ginger
+                            <br> 2 Tablespoon Spring Onion 
+                            <br> 1/2 Cup Onion
+                            <br> 1 cup carrot 
+                            <br> 1 cup Capsicum 
+                            <br>
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>1. Beat the eggs: Use two or three eggs per omelette, depending on how hungry you are. Beat the eggs lightly with a fork.
+                            <br>2. Melt the butter: Use an 8-inch nonstick skillet for a 2-egg omelette, a 9-inch skillet for 3 eggs. Melt the butter over medium-low heat, and keep the temperature low and slow when cooking the eggs so the bottom doesn’t get too brown or overcooked.
+                            <br>3. Add the eggs: Let the eggs sit for a minute, then use a heatproof silicone spatula to gently lift the cooked eggs from the edges of the pan. Tilt the pan to allow the uncooked eggs to flow to the edge of the pan.
+                            <br>4. Fill the omelette: Add the filling—but don’t overstuff the omelette—when the eggs begin to set. Cook for a few more seconds
+                            <br>5. Fold and serve: Fold the omelette in half. Slide it onto a plate with the help of a silicone spatula.
+                        </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/Omelette.webp" alt = "">
+                      </div>
+                      <div class = "meal-link">
+                        <a href="https://youtu.be/7dV4Qw8qdsA?si=xPEm_MYZQt9rITgf" class="meal-link-btn" >Watch Video</a>
+                    </div>
+                </div>
+            </div>  
+            <div class = "five-meal-detail" id="five-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Spring Rolls</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">Indulge in the vibrant flavors of Asia with our exquisite spring rolls, a delightful combination of freshness and crunch. These handcrafted rolls are a perfect appetizer or light meal, showcasing a harmonious blend of textures and aromas that will tantalize your taste buds.</p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>2 Tablespoon chopped garlic
+                            <br>2 Tablespoon chopper ginger
+                            <br>2 Tablespoon chopped spring onion bulbs
+                            <br>1/2 cup onion
+                            <br>1 cup Carrots
+                            <br>1 cup capsicum
+                            <br>1 cup cabbage
+                            <br>Salt to taste
+                            <br>2 Teaspoon green chilli paste
+                            <br>1 Tablespoon red chilli sauce
+                            <br>2 Tablespoon Ketchup
+                            <br> 2 Teaspoon Soya Sauce
+                            <br>2 Teaspoon kashmiri red chilli paste
+                            <br>1 Teaspoon vinegar
+                            <br> 1 Teaspoon sugar
+                            <br>Cooked vegetable fillinh
+                            <br>Spring roll sheets
+                            <br> 1 Tablespoon Refined flour
+                            <br>50ml water
+                            <br>oil for frying
+                
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>1. Set a wok on high heat, add oil, garlic, ginger and spring onion bulbs, stir and cook on high heat for 1-2 minutes.
+                            <br>2. Further add the remaining ingredients of the filling, stir & cook on high heat for 1-2 minutes.
+                            <br>3. Sprinkle some corn flour, about ½ tsp and mix well, finish with spring onion greens and mix well, switch off the flame and allow the mixture to cool down, keep the filling aside to be used later.
+                            <br>4. In a separate small bowl, mix maida & water to make a lump free slurry.
+                            <br>5. Take the spring roll sheet, add sufficient amount of vegetable filling, start to fold the either ends inwards to seal the openings, further roll tightly to keep the fillings intact, apply little slurry on the edges and roll to seal the edges, if there are any openings or if you notice a minor crack developing on the sheets just simply apply the slurry and deep fry them. Make all the spring rolls in same way.
+                            <br>6. Set a wok on medium heat filled with oil, drop in the spring rolls in hot oil and deep fry them on medium heat until crisp and golden brown in colour.
+                            <br>7. Hot & crispy spring rolls are ready, cut them in pieces and serve them hot with ketchup or any dip of your choice.
+                           
+                        </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/spring-rolls.webp" alt = "">
+                      </div>
+                      <div class = "meal-link">
+                        <a href="https://youtu.be/-gOhyN8WJMY?si=377BWVfRiyOgmbtM" class="meal-link-btn" >Watch Video</a>
+                    </div>
+                </div>
+            </div> 
+            <div class = "six-meal-detail" id="six-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Veg-Chow-Mein</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">Indulge in the tantalizing flavors of our Veg Chowmein, a delightful stir-fried noodle dish that combines freshness, crunch, and a burst of savory goodness. Made with a colorful medley of fresh vegetables, delicate noodles, and aromatic spices, this dish promises a satisfying culinary experience for every palate.
+                        </p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>Salt to taste
+                            <br>200 grams Noodles
+                            <br>Water as required
+                            <br>3-4 Tablespoon oil
+                            <br>1 Tablspoon chopped ginger
+                            <br>1 Tablespoon chopped garlic
+                            <br>2-3 Green chillies
+                            <br>1 onion
+                            <br>1 carrot
+                            <br>1 Capsicum
+                            <br>1/2 cabbage
+                            <br>A pinch of sugar
+                            <br>2 Tablespoon Spring onion bulbs
+                            <br>1 Teaspoon dark soya sauce
+                            <br> 1/2 Teaspoon vinegar
+                            <br>1 Tablespoon Ketchup
+                            <br> 1 Tablespoon Red Chilli Sauce
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>1. Bring water to a roaring boil & add salt to taste.
+                            <br>2. Add noodles in the boiling water & only boil them for 30 seconds or until all the noodles have separated.
+                            <br>3. Further, switch off the flame & cover it for two to two & a half minutes.
+                            <br>4. Remove them using a pair of tongs & transfer them into a sieve, rinse them will cold water immediately to stop the cooking process & drizzle some oil over them to prevent them from sticking to each other.
+                            <br>5. Your perfectly boiled noodles are ready.
+                            <br>6. To cook the chowmein, set a wok over high heat & once it gets hot add the oil.
+                            <br>7. Once the oil gets hot, add ginger, garlic & green chillies, toss over high flame for a minute.
+                            <br>8. Further add all the veggies along with a pinch of sugar & toss the veggies over high flame for 30 seconds.
+                            <br>9. Further add spring onion bulbs, boiled noodles, white pepper powder, salt & the remaining ingredients of the chowmein, stir well & cook for a minute.
+                            <br>10. Your desi veg chowmein is ready.
+                        </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/Veg-Chow-Mein.jpg.webp" alt = "">
+                      </div>
+                      <div class = "meal-link">
+                        <a href="https://youtu.be/j5o7RUtyaRw?si=JUAKhGCQB8wAT6OE" class="meal-link-btn" >Watch Video</a>
+                    </div>
+                </div>
+            </div> 
+            <div class = "seven-meal-detail" id="seven-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">White Sauce Pasta</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">Indulge in a culinary journey with our signature Creamy White Sauce Pasta, a tantalizing dish that brings together the richness of Italian flavors and the comfort of creamy goodness. Each forkful is a symphony of velvety sauce, perfectly cooked pasta, and a delightful medley of complementary ingredients.
+                        </p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>6 cup water
+                            <br>Salt to Taste
+                            <br>2 Cup Pasta
+                            <br>1 Tablespoon Oil
+                            <br>3 clove chopped garlic
+                            <br>1/2 chopped carrot
+                            <br>1/2 chopped capsicum
+                            <br>3 Tablespoon sweet corn 
+                            <br>1/2 Teaspoon black pepper
+                            <br>2 Tablespoon butter
+                            <br> 3 Tablespoon Plain flour 
+                            <br>3 cup milk 
+                            <br>1/2 Teaspoon chilli flakes
+                            <br>1/2 Teaspoon mixed herbs
+                            <br>Cheese for garnishing 
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>1. firstly, in a large kadai boil 6 cup water and 1 tsp salt.
+                            <br>2. once the water comes to a boil, add 2 cup pasta. i have used elicoidali pasta, you can alternatively use penne pasta.
+                            <br>3. boil for 7 minutes, or until the pasta is cooked al dente.
+                            <br>4. drain off the pasta and keep aside.
+                            <br>5. in a frying pan, heat 2 tbsp oil and saute 3 clove garlic.
+                            <br>6. add ½ onion, ½ carrot, ½ capsicum and 3 tbsp sweet corn
+                            <br>7. saute for a minute or until vegetables shrink slightly yet remain crunchy.
+                            <br>8. further, add ½ tsp pepper and ½ tsp salt.
+                            <br>9. saute well until the spices are well combined. keep aside.
+                            <br>10. to prepare white sauce for pasta, heat 2 tbsp butter.
+                            <br>11. add 3 tbsp maida and saute on low flame.
+                            <br>12. saute until the maida turns aromatic yet do not change its colour.
+                            <br>13. now add 1 cup milk and mix well.
+                            <br>14. mix until the sauce thickens without forming any lumps.
+                            <br>15. further, add 1 more cup of milk and continue to stir continuously.
+                            <br>16. mix continuously, until the sauce thickens. if required using a whisk break the lumps.
+                            <br>17. cook until the sauce turns silk smooth and creamy texture.
+                            <br>18. now add ½ tsp pepper, ½ tsp chilli flakes, ½ tsp mixed herbs and ½ tsp salt.
+                            <br>19. mix well making sure everything is well combined.
+                            <br>20. add in sauted vegetables and combine well.
+                            <br>21. now add in boiled pasta and mix gently.
+                            <br>22. add 2 tbsp of boiled pasta water if the sauce thickens.
+                            <br>23. mix gently making sure everything is well combined.
+                            <br>24. finally, just before serving white sauce pasta, garnish with grated cheese.
+
+                        </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/white-sauce-pasta-featured.webp" alt = "">
+                      </div>
+                      <div class = "meal-link">
+                        <a href="https://youtu.be/l_HOohJZL0U?si=YVuJ3ba4lQq3u65N" class="meal-link-btn" >Watch Video</a>
+                    </div>
+                </div>
+            </div> 
+            <div class = "eight-meal-detail" id="eight-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Red Velvet Cupcake</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">Indulge your senses in a symphony of flavors with our exquisite Red Velvet Cupcake. This culinary masterpiece is a harmonious blend of moist, velvety chocolate cake infused with a hint of tangy buttermilk, topped with a luscious swirl of creamy cream cheese frosting, and adorned with delicate red velvet crumbs for a visual feast.
+                        </p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>100 gram Butter
+                            <br> 15 gram castor sugar
+                            <br>5ml Vanila essence
+                            <br>200 grams Condensed milk
+                            <br>75ml milk
+                            <br>125 grams Plain flour
+                            <br>55 grams Yogurt
+                            <br>1 Teaspoon Baking soda 
+                            <br>1 Teaspoon Cocoa powder
+                            <br>1/2 Teaspoon Vinegar 
+                            <br>1 Teaspoon food colouring 
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>1. Preheat the oven to 165 C & line your cupcake trays.
+                            <br>2. Take a large bowl & with the help of a whisk cream the butter, castor sugar & vanilla essence until light & fluffy.
+                            <br>3. Further add the condensed milk & whisk until everything gets incorporated.
+                            <br>4. Now add the milk & mix until everything is combined.
+                            <br>5. Once everything is well combined, add the flour & fold it into the mixture using a spatula, make sure to only mix it until the flour gets incorporated
+                            <br>6. Now in a separate bowl add yogurt & the remaining ingredients, mix everything well using a whisk & pour the yogurt mixture into the cupcake batter, mix until everything combines.
+                            <br>7. Using an ice cream scooper, scoop out the batter & fill the lined cupcake trays, lightly tap the trays on a surface & bake at 165 C for 15 minutes or until a toothpick/skewer comes out clean.
+                            <br>FOR CREAM CHEESE FROSTING:
+                            <br>1. In a stand mixer/ large bowl cream the butter until smooth & add the cream cheese, cream it together until smooth again.
+                            <br>2. Further add the lemon zest & mix well.
+                            <br>3. Now start adding the icing sugar in batches, approximately 1 cup at a time & keep whisking until it becomes smooth & creamy.
+                            <br>4. Your cream cheese frosting is ready, put it in the refrigerator for 2-3 hours.
+                        </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/Red-Velvet-Cupcakes-3-New-copy.jpg" alt = "">
+                      </div>
+                      <div class = "meal-link">
+                        <a href="https://youtu.be/1M2zQd0SyzE?si=yvK6jR4Y-0JBm70o" class="meal-link-btn" >Watch Video</a>
+                    </div>
+                </div>
+            </div> 
+            <div class = "nine-meal-detail" id="nine-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Paneer Cheese Toast</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">Indulge in a mouthwatering fusion of flavors with our Paneer Cheese Toast, a tantalizing twist on the classic cheese toast recipe. This delightful dish combines the rich creaminess of paneer (Indian cottage cheese) with gooey melted cheese, all nestled atop a crispy slice of toasted bread. Perfectly seasoned with aromatic spices and herbs, each bite promises a symphony of savory goodness.
+                        </p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>1 Tablespoon Oil
+                            <br>1 Tablespoon butter
+                            <br>1/2 Cumin seeds 
+                            <br>2 chopped onion 
+                            <br>2 chopped Tomato
+                            <br>2 chopped Capsicum 
+                            <br>1 cup chopped cabbage 
+                            <br>2 Tablespoon Schezwan Sauce 
+                            <br>2 Tablespoon Red Chilli sauce 
+                            <br>2 Tablespoon Ketchup 
+                            <br>1 Teaspoon Pav bhaji masala 
+                            <br>A pinch Garam masala
+                            <br>1 Teaspoon Kashmiri red chilli powder 
+                            <br>A handful chopped spring onion greens
+                            <br>Salt to taste 
+                            <br> Sandwich Bread 
+                            <br>Paneer (as required)
+                            <br>Cheese (as required)
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>1. Set a pan over high flame & once it gets hot add in the oil & let the oil heat up as well.
+                            <br>2. Further add cumin seeds & let them crackle, then add onions, tomatoes, capsicum & all the remaining ingredients of the masala except for fresh coriander, stir well & cook for 1-2 minutes.
+                            <br>3.  After mixing all the veggies & cooking for 1-2 minutes, mash everything together using a potato masher & then finally add fresh coriander & mix well.
+                            <br>4. Your masala for the bread toast is ready.
+                            <br>5. To make the toast take a slice of sandwich bread & apply soft butter on it, then spread an even layer of the masala you prepared, further add the diced paneer followed by pav bhaji masala & grated processed cheese, your bread toast is ready to be toasted, assemble all the toasts similarly.
+                            <br>6. Heat a pan over high flame & add butter, place the toast on the pan & cover the pan with a lid, cook over low flame until the cheese melts & the bread gets toasted from the bottom.
+                            <br>7. Once toasted remove the toast from the pan & cut it as per your preference.
+                            <br>8. Your chatpata paneer toast is ready, serve it with ketchup & mayo or any other dip of your choice.
+                        </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/paneer-cheese-toast.jpg.webp" alt = "">
+                      </div>
+                      <div class = "meal-link">
+                        <a href="https://youtu.be/VbUHSOPP_hk?si=psWwox5NWEYJpxvn" class="meal-link-btn" >Watch Video</a>
+                    </div>
+                </div>
+            </div> 
+            <div class = "ten-meal-detail" id="ten-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Chocolate Chip Cookie</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">Welcome to a world of pure delight with our indulgent chocolate chip cookies! Made with love and care, these heavenly treats are sure to tantalize your taste buds and leave you craving for more.
+                        </p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>115 grams unsalted Butter
+                            <br>1/2 cup grams Caster Sugar 
+                            <br>1/2 cup light brown sugar
+                            <br>30ml water
+                            <br>1 Teaspoon Oil
+                            <br>1 Teaspoon baking powder
+                            <br>1 Teaspoon Vanilla essence 
+                            <br>1+1/3 cups Refined flour
+                            <br>1/2 Teaspoon Baking soda
+                            <br>Salt to taste 
+                            <br> 150 grams Dark Chocolate 
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>1. Add the melted butter, caster sugar & light brown sugar into a large bowl & mix until everything combines.
+                            <br>2. Further add the water, oil & baking powder in a separate bowl & whisk well, add this mixture into the butter & sugar along with vanilla essence, whisk well until everything comes together. This mixture is a substitute for egg, if you consume eggs then replace it with 1 whole egg.
+                            <br>3. Once you wet mixture is ready, sieve in the refined flour, corn flour, baking soda & salt, mix well using a spatula until all the ingredients combine.
+                            <br>4. After the cookie dough comes together, roughly chop & add in the dark chocolate chunks & mix well, I prefer using chocolate chunks instead of chocolate chips as they give a better result, if you are using chocolate chips then add 1 cup or 170 grams. Your chocolate chip cookie dough is ready.
+                            <br>5. Portion out the dough using a scooper or using a spoon & your hands into 60 gram cookie doughballs, you can adjust the size as per your preference.
+                            <br>6. Once you have shaped all the cookie doughballs, cover them using a cling film & set them in the fridge for 45 minutes to an hour.
+                            <br>7. Preheat the oven to 175C.
+                            <br>8. Once the cookie doughballs have set, place them onto a butter paper lined baking tray, make sure to place them 2-3 inches apart as they will spread & bake them for 10-12 minutes.
+                            <br>9. Remove the tray from the oven once the cookies have baked & sprinkle some flakey salt & let the cookies cool down for 8-10 minutes, do not move or lift them while they are still hot or else, they will collapse.
+                            <br>10. Your delicious & perfect chocolate chip cookies are ready.
+                        </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/chocolate_chip_cookie.webp" alt = "">
+                      </div>
+                      <div class = "meal-link">
+                        <a href="https://youtu.be/fEl7_ti9_pQ?si=MbwPgQzbcJEy9v64" class="meal-link-btn" >Watch Video</a>
+                    </div>
+                </div>
+            </div> 
+            <div class = "eleven-meal-detail" id="four-meal-detail">
+                <!-- recipe close btn -->
+                <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn" onclick="closeBtn()">
+                    <i class ="fas fa-times"></i>
+                </button>
+
+                <!-- recipe details -->
+                <div class="meal-content">
+                    <h2 class="meal-name">Sweet Potato Fries</h2>
+                    <div class="meal-about">
+                        <h3 class="meal-title-about">About Meal</h3>
+                        <p class="meal-descript-about">Indulge in a culinary journey with our irresistible Sweet Potato Fries, a tantalizing fusion of wholesome goodness and gourmet flavors. Handcrafted to perfection, each crispy bite delivers a symphony of taste sensations that will leave your taste buds craving for more.
+                        </p>
+                    </div>
+                    <div class = "meal-instruct">
+                        <h3>Ingridients:</h3>
+                        <p><br>3 Sweet Potato (or as required)
+                            <br>Salt to taste
+                            <br>2 Tablespoon vinegar 
+                            <br>Black pepper powder to taste 
+                            <br>A pinch of kashmiri red chilli powder 
+                            <br>A pinch of chaat masala
+                            <br>A pinch of Garam masala 
+                            <br>1 Teaspoon lemon juice 
+                        </p>
+                        <h3>Instruction:</h3>
+                        <p><br>1. Wash & wipe all the sweet potatoes & peel them.
+                            <br>2. Further cut the sweet potato into long & thick (1cm x 1 cm) french fries.
+                            <br>3. Wash the cut fries in cold water until the water turns clear.
+                            <br>4. Set a stock pot with water over high flame & bring it over a roaring boil, then add the salt & vinegar.
+                            <br>5. Add the cut fries into the boiling water, cover & blanch them for 3 minutes.
+                            <br>6. Then strain them from the water & transfer them into a sieve & let them cool down to room temperature.
+                            <br>7. Once cooled, carefully drop these into 185°-190° C hot oil & fry them for 1 minute. 
+                            <br>8. Transfer them into a sieve using a spider & let them cool down to room temperature again. 
+                            <br>9. You can freeze these for later use at this stage. 
+                            <br>10. Once cooled, add them into the hot (180-185°C) oil again & fry them over medium to low heat until golden brown & crisp.
+                            <br>11. Once fried remove them from the hot oil & let all the oil drain off  & transfer them into a bowl. 
+                            <br>12. Sprinkle salt & black pepper according to your taste & toss the fries to coat well, you can serve them at this stage or you can add the further spices to make masala fries. 
+                            <br>13. Your crisp & delicious sweet potato fries are ready. 
+                        </p>
+                
+                    </div>
+                    <div class = "meal-img">
+                        <img src = "./img/Baked-Sweet-Potato-Fries-Recipe.jpg" alt = "">
+                      </div>
+                      <div class = "meal-link">
+                        <a href="https://youtu.be/42ySS8yd7QU?si=MGm-fDIKaj_-wchF" class="meal-link-btn" >Watch Video</a>
+                    </div>
+                </div>
+            </div> 
+            
+            
+        </div>
+            <!--Ending of Recipe Details-->
+
+            <!-- Login/Signup Form -->
+ <link rel="stylesheet" href="./assets/css/login-signup_page.css">
+ <section class="login-signup" id="login-signup">
+  <div class="container">
+    <div class="login-signup-wrapper">
+      <div class="form-container signup-form-container">
+        <h2 class="form-title">Suggest Your Food Recipe</h2>
+        <form id="signup-form" class="form" action="signup2.php" method="POST">
+          <div class="input-wrapper">
+            <label for="name" class="input-label">Food Name</label>
+            <input type="text" id="name" name="name" class="input-field" required>
+          </div>
+          <div class="input-wrapper">
+            <label for="mail" class="input-label">Ingridients</label>
+            <input type="text" id="mail" name="mail" class="input-field" required>
+          </div>
+          <div class="input-wrapper">
+            <label for="password" class="input-label">Recipe</label>
+            <input type="text" id="password" name="password" class="input-field" required>
+          </div>
+          <button type="submit" class="btn btn-primary" href="index.html">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+            <!--Footer-->
+    <div class="footer">
+        <div class="social-btn">
+            <a href="#" target="_blank" ><i class="	fab fa-facebook"></i></a>
+            <a href="#" target="_blank" ><i class="	fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="	fab fa-linkedin"></i></a>
+            <a href="#" target="_blank" "><i class="	fab fa-github"></i></a>
+        </div>
+            <div class="quick-bar">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        <p>Copyright &copy; 2024 Dhyana Parmar. All right reserved</p>  
+    </div>
+
+    <!--Ending of Footer-->
+
+<!--Script for Javascript-->
+<script src="./assets/index.js"></script>
+</body>
+</html>
